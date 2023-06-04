@@ -58,7 +58,8 @@ void TimezoneWindowsPlugin::HandleMethodCall(
   }
 
   if (method_call.method_name().compare("getLocalTimezone") == 0) {
-      HINSTANCE hInstLibrary = LoadLibrary(TEXT("..\\windows\\WindowsTimezone.dll"));
+      //HINSTANCE hInstLibrary = LoadLibrary(TEXT("..\\windows\\WindowsTimezone.dll"));
+      HINSTANCE hInstLibrary = LoadLibrary(TEXT("WindowsTimezone.dll"));
       if (hInstLibrary != NULL) {
         getLocalTimezoneFn getLocalTimezone = (getLocalTimezoneFn)GetProcAddress(hInstLibrary, "getZone");
         if (getLocalTimezone != NULL) {
