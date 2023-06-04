@@ -30,4 +30,8 @@ abstract class TimezoneWindowsPlatform extends PlatformInterface {
   Future<String?> getLocalTimezone() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<String?> getCurrentPath() {
+    throw UnimplementedError('platformVersion() has not been implemented.');
+  }
 }

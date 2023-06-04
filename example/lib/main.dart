@@ -31,6 +31,8 @@ class _MyAppState extends State<MyApp> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     // We also handle the message potentially returning null.
     try {
+      /// RA: GET CURRENT PATH
+      var current = await _timezoneWindowsPlugin.getCurrentPath();
       /// RA: CHECK THE ZONE
       var currentZone = await _timezoneWindowsPlugin.getLocalTimezone();
       platformVersion =

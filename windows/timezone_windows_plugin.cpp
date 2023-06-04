@@ -12,6 +12,7 @@
 
 #include <memory>
 #include <sstream>
+#include <filesystem>
 
 typedef char* (*getLocalTimezoneFn)();
 
@@ -42,6 +43,7 @@ TimezoneWindowsPlugin::~TimezoneWindowsPlugin() {}
 void TimezoneWindowsPlugin::HandleMethodCall(
     const flutter::MethodCall<flutter::EncodableValue> &method_call,
     std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
+
   if (method_call.method_name().compare("getPlatformVersion") == 0) {
     std::ostringstream version_stream;
     version_stream << "Windows ";
@@ -75,6 +77,12 @@ void TimezoneWindowsPlugin::HandleMethodCall(
         printf("Could not load WindowsTimezone.dll\n");
       }
     }
+
+  if (method_call.method_name().compare("getCurrentPath") == 0) {
+    std::ostringstream version_stream;
+    version_stream << std::filesystem::current_path().generic_string();;
+    result->Success(flutter::EncodableValue(version_stream.str()));
+  }
 }
 
 }  // namespace timezone_windows

@@ -20,4 +20,10 @@ class MethodChannelTimezoneWindows extends TimezoneWindowsPlatform {
     final version = await methodChannel.invokeMethod<String>('getLocalTimezone');
     return version;
   }
+
+  @override
+  Future<String?> getCurrentPath() async {
+    final version = await methodChannel.invokeMethod<String>('getCurrentPath');
+    return version;
+  }
 }

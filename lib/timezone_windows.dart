@@ -9,4 +9,8 @@ class TimezoneWindows {
   Future<String?> getLocalTimezone() {
     return TimezoneWindowsPlatform.instance.getLocalTimezone();
   }
+
+  Future<String?> getCurrentPath() {
+    return TimezoneWindowsPlatform.instance.getCurrentPath();
+  }
 }
